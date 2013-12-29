@@ -1,6 +1,6 @@
 package com.decaf.money
 
-trait CurrencyConversion[From <: Currency, To <: Currency] {
+trait CurrencyConversion[-From <: Currency, -To <: Currency] {
   def ratio: BigDecimal
 }
 

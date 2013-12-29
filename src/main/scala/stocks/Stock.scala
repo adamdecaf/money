@@ -6,6 +6,6 @@ final case class Stock(
   shares: BigInt,
   askingPrice: Money
 ) {
-  final def canAffordPurchase(shares: BigInt, payment: Money)(implicit conv: CurrencyConversion[payment.currency.type, askingPrice.currency.type]) =
-    payment.convertToForeignCurrency(conv).units < askingPrice.units
+  final def canAffordPurchase(shares: BigInt, availablePayment: Money)(implicit conv: CurrencyConversion[availablePayment.currency.type, askingPrice.currency.type]) =
+    availablePayment.convertToForeignCurrency(conv).units >= askingPrice.units
 }
