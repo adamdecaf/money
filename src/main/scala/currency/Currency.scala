@@ -5,6 +5,6 @@ final case class Currency(
 )
 
 object Currency {
-  final val UnitedStatesDollars = Currency("United States Dollars")
-  final val BrittishPounds = Currency("Brittish Pounts")
+  final val USD = Currency("United States Dollars")
+  final val GBP = Currency("Brittish Pounts")
 }

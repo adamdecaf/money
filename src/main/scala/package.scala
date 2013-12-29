@@ -14,4 +14,19 @@ package object money {
   def Props = akka.actor.Props
   type Timeout = akka.util.Timeout
   def Timeout = akka.util.Timeout
+
+  // From shapeless: https://github.com/milessabin/shapeless/blob/master/core/src/main/scala/shapeless/package.scala#L36
+  // Type inequalities
+  def unexpected : Nothing = sys.error("Unexpected invocation")
+  trait =:!=[A, B]
+
+  implicit def neq[A, B] : A =:!= B = new =:!=[A, B] {}
+  implicit def neqAmbig1[A] : A =:!= A = unexpected
+  implicit def neqAmbig2[A] : A =:!= A = unexpected
+
+  trait <:!<[A, B]
+
+  implicit def nsub[A, B] : A <:!< B = new <:!<[A, B] {}
+  implicit def nsubAmbig1[A, B >: A] : A <:!< B = unexpected
+  implicit def nsubAmbig2[A, B >: A] : A <:!< B = unexpected
 }

@@ -2,7 +2,10 @@ organization := "com.decaf"
 
 name := "money"
 
-scalacOptions ++= Seq("-Xlog-implicits")
+scalacOptions ++= Seq("-Xlog-implicits"
+                      //"-Yinfer-debug",
+                      //"-Xlog-implicit-conversions"
+)
 
 libraryDependencies ++= Seq(
   "org.joda" % "joda-convert" % "1.2",

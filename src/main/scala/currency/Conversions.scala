@@ -17,11 +17,11 @@ private[money] object ConversionsCache {
 trait CurrencyConversions {
   import Currency._
 
-  protected implicit object USD2GBP extends CurrencyConversion[UnitedStatesDollars.type, BrittishPounds.type] {
+  implicit val USD2GBP = new CurrencyConversion[USD.type, GBP.type] {
     val ratio = BigDecimal("0.61")
   }
 
-  protected implicit object GBP2USD extends CurrencyConversion[BrittishPounds.type, UnitedStatesDollars.type] {
+  implicit val GBP2USD = new CurrencyConversion[GBP.type, USD.type] {
     val ratio = BigDecimal("1.65")
   }
 }

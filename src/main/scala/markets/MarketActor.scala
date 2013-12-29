@@ -9,7 +9,7 @@ trait MarketActor extends BaseActor {
         Company("Sample Company", now.minusYears(10)),
         BigInt("10000"),
         Money(
-          Currency.UnitedStatesDollars,
+          Currency.USD,
           BigDecimal("120.32")
         )
       )
